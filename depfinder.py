@@ -20,8 +20,8 @@ errors = []
 for index, var in enumerate(var_list):
     print(f"Indexing... ({index}/{len(var_list)})", end="\r")
     try:
-        open_var = ZipFile(var, "r")
-        json_string = open_var.read('meta.json')
+        with ZipFile(var, "r") as open_var:
+            json_string = open_var.read('meta.json')
         json_data = json.loads(json_string)
     except Exception as ex:
         errors.append(var + f" ({str(ex)})")
@@ -40,10 +40,10 @@ if args.list:
     result_string = "\n".join(results)
     result_file_name = "missing.txt"
 else:
-    results = {k:v for k, v in sorted(missing_deps.items(), key=lambda x: len(x[1]), reverse=True)}       
+    results = dict(sorted(missing_deps.items(), key=lambda x: len(x[1]), reverse=True))       
     result_string = json.dumps(results, indent=4)
     result_file_name = "missing.json"
-print(results)    
+print(result_string)    
 print("===")
 print("Additionally, the following errors occured: " + "\n".join(errors))         
 with open(result_file_name, "w", encoding="utf-8") as missing_file:

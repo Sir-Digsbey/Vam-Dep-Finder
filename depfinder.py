@@ -12,8 +12,7 @@ args = parser.parse_args()
 
 var_list = list(glob.glob(os.path.join(args.var_path, "**", "*.var"), recursive=True))
 
-required_dependencies = []
-var_list_string = "\n".join(var_list)
+var_list_string = "\n".join(var_list)  # Easier to search for substrings
 missing_deps = {}
 errors = []
 

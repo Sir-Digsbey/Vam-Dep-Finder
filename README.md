@@ -2,7 +2,7 @@
 Finds missing dependencies for VAM
 
 # How to run
-First install Python (google it if you need to).
+First install Python 3.8 or higher (google it if you need to).
 Then download file, place anywhere you'd like, and run with `python depfinder.py --var-path <PATH>` (replace <PATH> with the path to your VAR directory).
 
 Resuts will be saved to a file called `missing.json`.

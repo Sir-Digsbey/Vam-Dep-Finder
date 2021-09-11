@@ -24,4 +24,6 @@ Means that `vecterror.PerPip_looks.2.var` (which I do have) is missing the packa
 
 Alternatively, add `--list` to get the results as a simple list of mising packages instead of a JSON - in which case the results will be saved in `missing.txt`
 
+You can also add `--move-broken <PATH>` to move all of the broken packages (those with missing dependencies) to a
+
 In case there's an error in any of the files, it will be printed at the end of the output (but not saved to the file).

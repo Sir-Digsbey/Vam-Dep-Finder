@@ -56,7 +56,8 @@ else:
     result_string = json.dumps(results, indent=4)
     result_file_name = "missing.json"
 print(result_string)    
-print("===")
-print("Additionally, the following errors occured: " + "\n".join(errors))         
+if errors:
+    print("===")
+    print("Additionally, the following errors occured: " + "\n".join(errors))         
 with open(result_file_name, "w", encoding="utf-8") as missing_file:
     missing_file.write(result_string)
